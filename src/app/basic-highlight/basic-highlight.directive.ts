@@ -7,7 +7,7 @@ import { Directive, ElementRef, OnInit } from "@angular/core";
 
 export class BasicHighlightDirective implements OnInit {
 
-    // Tự lôi cái ele mà direct này được đặt vào (trong tương lai)
+    // Tự lôi cái ele mà directive này được đặt vào (trong tương lai)
     constructor(private elementRef: ElementRef) {
 
     }
