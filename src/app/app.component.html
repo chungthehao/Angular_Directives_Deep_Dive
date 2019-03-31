@@ -31,7 +31,28 @@
       </ul>
 
       <p appBasicHighlight>Style me with basic highlight directive!</p>
-      <p appBetterHighlight>Style me with better highlight directive!</p>
+
+      <!-- <p 
+        appBetterHighlight
+        [defaultColor]="'yellow'"
+        [highlightColor]="'pink'">Style me with better highlight directive 1111111111!</p> -->
+        
+      <!-- <p 
+        appBetterHighlight
+        [defaultColor]="'yellow'"
+        [appBetterHighlight]="'pink'">Style me with better highlight directive 22222222222!</p> -->
+      <!-- <p 
+        
+        [defaultColor]="'yellow'"
+        [appBetterHighlight]="'pink'">Style me with better highlight directive 33333333333!</p> -->
+      <!-- <p 
+        
+        defaultColor="yellow"
+        [appBetterHighlight]="'pink'">Style me with better highlight directive 4444444444444!</p> -->
+      <p 
+        
+        defaultColor="yellow"
+        appBetterHighlight="pink">Style me with better highlight directive 555555555555!</p>
 
       <ng-template [ngIf]="onlyOdd">
         <p>Only odd</p>

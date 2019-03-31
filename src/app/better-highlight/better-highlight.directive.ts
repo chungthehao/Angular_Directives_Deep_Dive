@@ -1,10 +1,12 @@
-import { Directive, Renderer2, OnInit, ElementRef, HostListener, HostBinding } from '@angular/core';
+import { Directive, Renderer2, OnInit, ElementRef, HostListener, HostBinding, Input } from '@angular/core';
 
 @Directive({
   selector: '[appBetterHighlight]'
 })
 export class BetterHighlightDirective implements OnInit {
-  @HostBinding('style.backgroundColor') backgroundColor: string = 'transparent'; // initial value
+  @Input() defaultColor: string = 'transparent';
+  @Input('appBetterHighlight') highlightColor: string = 'blue';
+  @HostBinding('style.backgroundColor') backgroundColor: string;
 
   // Angular tự inject khi nó khởi tạo:
   // - elRef: tham chiếu tới ele chứa directive này.
@@ -13,6 +15,8 @@ export class BetterHighlightDirective implements OnInit {
 
   ngOnInit() {
     // this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'blue');
+
+    this.backgroundColor = this.defaultColor; // initial value
   }
 
   // Dùng HostListener decorator để bắt sự kiện của ele chưa directive này!
@@ -20,14 +24,14 @@ export class BetterHighlightDirective implements OnInit {
     // C1
     // this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'blue');
     // C2
-    this.backgroundColor = 'blue';
+    this.backgroundColor = this.highlightColor;
   }
 
   @HostListener('mouseleave') mouseleave(eventData: Event) {
     // C1
     // this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'transparent');
     // C2
-    this.backgroundColor = 'transparent';
+    this.backgroundColor = this.defaultColor;
   }
 
 }
